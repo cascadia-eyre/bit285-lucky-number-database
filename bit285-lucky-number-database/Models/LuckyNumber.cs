@@ -11,12 +11,12 @@ namespace lucky_number_database.Models
         private Random _random = new Random();
         private int[] _spinner = new int[3];
         private decimal _balance;
-
+        [Key]
+        public int ID { get; set; }
         [Required]
         [Display(Name = "Lucky Number")]
         [Range(1,9,ErrorMessage ="The Lucky Number must be a number from 1 to 9")]
         public int Number { get; set; }
-
         [Required]
         public decimal Balance {
             set
@@ -52,6 +52,11 @@ namespace lucky_number_database.Models
                 }
                 return _spinner;
             }
+        }
+        public string Name
+        {
+            get;
+            set;
         }
     }
 }
